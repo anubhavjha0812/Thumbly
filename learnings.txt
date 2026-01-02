@@ -1,0 +1,25 @@
+mkdir server
+cd server
+npm init -y
+npm install express
+npm install -D typescript tsx @types/node ts-node @types/express nodemon
+npx tsc --init
+fix the tstonfig.json
+fix the package.json
+npm install cors dotenv
+npm install -D @types/cors
+Configure the db -> pass : qJc7v3OgBKc0dHnS
+npm install mongoose
+CREATE CONFIG FOLDER, AND MAKE basic boilerplate to connect with the db and export it.
+now import it on the server and call the function using await.
+ALSO MAKE SURE TO UPDATE THE IP ACCESS LIST OF THE DB CREATED TO ANYONE.
+
+add the config to cors such as origin, credentials
+
+for authentication, we ll use session
+npm install express-session
+npm install -D @types/express-session
+Now to encrypt the pass we need
+npm install bcrypt
+npm install -D @types/bcrypt
+

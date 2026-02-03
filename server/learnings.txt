@@ -8,25 +8,63 @@ fix the tstonfig.json
 fix the package.json
 npm install cors dotenv
 npm install -D @types/cors
+
 Configure the db -> pass : qJc7v3OgBKc0dHnS
-npm install mongoose
-CREATE CONFIG FOLDER, AND MAKE basic boilerplate to connect with the db and export it.
-now import it on the server and call the function using await.
 ALSO MAKE SURE TO UPDATE THE IP ACCESS LIST OF THE DB CREATED TO ANYONE.
 
-add the config to cors such as origin, credentials
+npm install mongoose
+CREATE *CONFIG* FOLDER, AND MAKE basic boilerplate to connect with the db and export it.
+now import it on the server.ts and call the function using await to connect to DB.
 
-for authentication, we ll use session
+Typical flow (end-to-end)
+
+    User interacts with the View
+
+    View sends input to the Controller
+
+    Controller updates or queries the Model
+
+    Model returns data/state
+
+    Controller passes data to the View
+
+    View renders updated output.
+
+now to implement *Authentication system, we need to save data into DB.
+For that we need to create MODELS folder first.
+inside it we will define diff types of models,
+for example:- User.ts which will have the Schema for the user. 
+
+
+add the config to cors such as origin, credentials.
+
+for *Authentication, we ll use *Session
 npm install express-session
 npm install -D @types/express-session
-Now to encrypt the pass we need
-npm install bcrypt
+Now to encrypt the pass we need -> npm install bcrypt
 npm install -D @types/bcrypt
 
-configure the setup for the session using middleware in the main file.
+configure the setup for the session using middleware in the main server.ts file.
 also to share data to mongo for authentication we need to save in it,
-npm install connect-mongo -> now use MongoStore from this
+npm install connect-mongo --> now use MongoStore from this.
 
-now create the *controller* folder 
-in that //create controllers for user registration -> basically the config
-now create the same for user Login
+now create the *controller* folder/ 
+in that-> AuthControllers.ts -> 
+    //create controllers for (user-registration) -> basically the config
+    now create the same for (user-Login)
+    same for (user-logout)
+    same for (user-verify) -> Helps to verify user is loggedIN or not.
+    Now we have to protect this userVerify() ...for that we need to create middlewares
+
+Create a folder: *middlewares*
+    -create file auth.ts -> define protect() -> which will tell ---"You are not logged in"
+
+Create a folder: *routes*
+    -create a file AuthRoutes.ts -> define routes in it using experss.Router() and export it.
+    
+Now, Go into the server.ts file : put app.use('/api/auth', AuthRouter) - a middleware
+
+
+
+
+

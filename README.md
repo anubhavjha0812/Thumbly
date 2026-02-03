@@ -64,7 +64,7 @@ npm install -D @types/cors
 
 ## Database Configuration
 
-* **Database Password:** `qJc7v3OgBKc0dHnS`
+* **Database Password:** `qJc7v3**********`
 * **Important:** Make sure to update the **IP Access List** of the database to **Allow Access from Anywhere (0.0.0.0/0)**.
 
 ```bash

@@ -27,5 +27,6 @@ configure the setup for the session using middleware in the main file.
 also to share data to mongo for authentication we need to save in it,
 npm install connect-mongo -> now use MongoStore from this
 
-now create the controller folder 
+now create the *controller* folder 
 in that //create controllers for user registration -> basically the config
+now create the same for user Login

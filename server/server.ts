@@ -7,9 +7,9 @@ import MongoStore from 'connect-mongo';
 
 
 declare module 'express-session' {
-    interface userSession {
-        isLoggedIn: boolean;
-        userId: string;
+    interface SessionData { //interface changed from userSession to SessionData 
+        isLoggedIn?: boolean; // ?this property is not guaranteed to be present.
+        userId?: string;
     }
 }
 
